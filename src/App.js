@@ -31,12 +31,9 @@ class App extends Component {
   }
 
 
-  performSearch = (query = 'dogs') => {
+  performSearch = (query = 'searchTerm') => {
     this.setState({
       loading: true,
-      dogsResults: [],
-      natureResults: [],
-      soccerResults: [],
       results: [],
       searchTerm: query
     });
@@ -50,16 +47,19 @@ class App extends Component {
         if (query === 'dogs') {
           this.setState({
             dogsResults: responseData.photos.photo,
+            searchTerm: query,
             loading: false
           });
         } else if (query === 'nature') {
           this.setState({
             natureResults: responseData.photos.photo,
+            searchTerm:query,
             loading: false
           });
         } else if (query === 'soccer') {
           this.setState({
             soccerResults: responseData.photos.photo,
+            searchTerm:query,
             loading: false
           });
         } else {
